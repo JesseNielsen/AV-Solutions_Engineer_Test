@@ -24,10 +24,15 @@ from hello_world.core import views as core_views
 
 
 urlpatterns = [
-    path("", core_views.index),
+    path("", core_views.index, name="index/home"),
     path("admin/", admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
-    path("add-book", core_views.add_book, name="add_book")
+    path("add-book", core_views.add_book, name="add_book"),
+    path('get-book/', core_views.get_book, name="get_book"),
+    path('update-quantity/', core_views.update_quantity, name="update_quantity"),
+    path('top-5-expensive-books/', core_views.top_5_expensive_books, name='top_5_expensive_books'),
+    path('delete-zero-stock-books/', core_views.delete_books_with_zero_stock, name='delete_books_with_zero_stock'),
+    path('delete-book/<str:isbn>/', core_views.delete_book, name='delete_book')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

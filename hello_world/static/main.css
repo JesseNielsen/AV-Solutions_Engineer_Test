@@ -43,3 +43,11 @@ body {
   .small {
     font-size: 0.75rem;
   }
+
+  a:visited {
+    color: white;
+  }
+
+  #delete_books_with_zero_stock {
+      color: red;
+  }
